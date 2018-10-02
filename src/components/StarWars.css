@@ -1,7 +1,7 @@
 .card-container {
     display: inline;
-    perspective: 600;
-    width: 100%;
+    perspective: 400px;
+
 }
 
 .card-content {
@@ -15,27 +15,23 @@
     border-radius: 10px;
     text-align: left;
     box-shadow: 1px 1px 20px 1px #333;
-    transition: all 0.4s ease;
+    transition: all 0.7s ease-in-out;
     transform-style: preserve-3d;
     cursor: pointer;
 }
 
 .card-content:hover {
-    transform: rotateY(179deg);
+    transform: rotateY(180deg);
  transform-style: preserve-3d;
-    transition: all .4s ease-in-out;
+    transition: all 0.7s ease-in;
 }
 
 .back {
     transform: rotateY(180deg);
-    transition: all .4s ease-in-out;
+
 }
 
-.front {
-    transform: rotateX(0) rotateY(0);
-    transform-style: preserve-3d;
-    transition: all .4s ease-in-out;
-}
+
 
 .front,
 .back {
