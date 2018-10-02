@@ -1,6 +1,7 @@
 .card-container {
     display: inline;
     perspective: 700;
+    width:100%;
 }
 
 

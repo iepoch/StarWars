@@ -34,23 +34,21 @@ class App extends Component {
   };
 
   showPrevPage = event => {
+    event.preventDefault();
     if (this.state.prevPage !== null){
       const newData = this.getCharacters(this.state.prevPage)
       console.log(newData);
     }
   }
   showNextPage = event => {
-  
+    event.preventDefault();
     if (this.state.nextPage !== null){
     const newData = this.getCharacters(this.state.nextPage)
     console.log(newData)
     }
   }
 
-  showCurrentChar = name => {
-    const currentChar= this.state.starwarsChars.find(char => char.name === name)
-  this.setState({currentChar: currentChar})
-  }
+
 
   render() {
     return (
