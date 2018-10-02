@@ -81,8 +81,8 @@ img {
 
 .prev {
     position: fixed;
-    top: 20%;
-    right: 85%;
+    top: 50%;
+    right: 95%;
     cursor: pointer;
     font-size: 100px;
     height: 35px;
@@ -93,8 +93,8 @@ img {
 .next {
     position: fixed;
     text-align: center;
-    top: 20%;
-    left: 85%;
+    top: 50%;
+    left: 95%;
     cursor: pointer;
     font-size: 100px;
     height: 35px;
