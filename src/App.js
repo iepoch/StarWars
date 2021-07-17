@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import './App.css';
-import { StarwarsList } from './components/StarwarsList'
+import React, { Component } from "react";
+import "./App.css";
+import { StarwarsList } from "./components/StarwarsList";
 class App extends Component {
   constructor() {
     super();
@@ -9,55 +9,62 @@ class App extends Component {
       currentChar: null,
       nextPage: null,
       prevPage: null,
-      id: Date.now() + 1
+      id: Date.now() + 1,
     };
   }
 
   componentDidMount() {
-    this.getCharacters('https://swapi.co/api/people');
+    this.getCharacters("https://swapi.dev/api/people");
   }
 
-  getCharacters = URL => {
+  getCharacters = (URL) => {
     // feel free to research what this code is doing.
     // At a high level we are calling an API to fetch some starwars data from the open web.
     // We then take that data and resolve it our state.
     fetch(URL)
-      .then(res => {
+      .then((res) => {
         return res.json();
       })
-      .then(data => {
-        this.setState({ starwarsChars: data.results, nextPage:data.next, prevPage: data.previous });
+      .then((data) => {
+        this.setState({
+          starwarsChars: data.results,
+          nextPage: data.next,
+          prevPage: data.previous,
+        });
       })
-      .catch(err => {
+      .catch((err) => {
         throw new Error(err);
       });
   };
 
-  showPrevPage = event => {
+  showPrevPage = (event) => {
     event.preventDefault();
-    if (this.state.prevPage !== null){
-      const newData = this.getCharacters(this.state.prevPage)
+    if (this.state.prevPage !== null) {
+      const newData = this.getCharacters(this.state.prevPage);
       console.log(newData);
     }
-  }
-  showNextPage = event => {
+  };
+  showNextPage = (event) => {
     event.preventDefault();
-    if (this.state.nextPage !== null){
-    const newData = this.getCharacters(this.state.nextPage)
-    console.log(newData)
+    if (this.state.nextPage !== null) {
+      const newData = this.getCharacters(this.state.nextPage);
+      console.log(newData);
     }
-  }
-
-
+  };
 
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
         <div>
-          <StarwarsList  list={this.state.starwarsChars} key={this.state.id}
-          showCurrentChar={this.showCurrentChar}  showNextPage={this.showNextPage} showPrevPage={this.showPrevPage} 
-            nextPage={this.state.nextPage} prevPage={this.state.prevPage}
+          <StarwarsList
+            list={this.state.starwarsChars}
+            key={this.state.id}
+            showCurrentChar={this.showCurrentChar}
+            showNextPage={this.showNextPage}
+            showPrevPage={this.showPrevPage}
+            nextPage={this.state.nextPage}
+            prevPage={this.state.prevPage}
           />
         </div>
       </div>
